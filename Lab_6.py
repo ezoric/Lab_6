@@ -11,6 +11,14 @@ def encode(password):
     return tracker_num
 
 
+def decode(password):
+    decoded_password = ""
+    for digit in password:
+        digit = int(digit)
+        decoded_password += str(digit + 7 if digit < 3 else digit + 3)
+    return decoded_password
+
+
 if __name__ == "__main__":
     run_program = True
     while run_program:
@@ -30,7 +38,8 @@ if __name__ == "__main__":
             encoded_password = encode(pass_word)
             print("Your password has been encoded and stored!")
         elif option == 2:
-            pass
+            decoded_password = decode(encoded_password)
+            print(f"The encoded password is {encoded_password}, and the original password is {decoded_password}.")
         print()
 
 
